@@ -1,0 +1,52 @@
+[tool.poetry]
+name = "falinks"
+version = "1.0.0.0"
+description = "Manage your links!"
+authors = ["sylvorg <jeet.ray@syvl.org>"]
+license = "OREO"
+include = [
+	"falinks/**/*.py",
+	"falinks/**/*.hy",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.12"
+addict = "*"
+beautifulsoup4 = "*"
+cachetools = "*"
+humanize = "*"
+inflect = "*"
+oreo = { git = "https://github.com/syvlorg/oreo.git", branch = "main" }
+pikepdf = "*"
+urltitle = "*"
+xxhash = "*"
+
+[tool.poetry.dev-dependencies]
+pytest = "^3.0"
+poetry = "*"
+poetry2setup = "*"
+pytest-hy = { git = "https://github.com/syvlorg/pytest-hy.git", branch = "master" }
+pytest-lazy-fixture = "*"
+pytest-parametrized = "*"
+pytest-randomly = "*"
+pytest-sugar = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+addopts = [
+	"--strict-markers",
+]
+markers = [
+	"append",
+	"json",
+	"dedup",
+	"process",
+	"session_buddy",
+	"sites",
+	"sort",
+	"telegram",
+	"txt",
+]

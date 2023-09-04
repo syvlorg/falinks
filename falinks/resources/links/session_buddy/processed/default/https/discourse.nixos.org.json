@@ -1,0 +1,13 @@
+{
+    "tabs": [
+        {
+            "url": "https://discourse.nixos.org/t/how-to-put-custom-emacs-setup-in-configuration-nix/17915/4"
+        },
+        {
+            "url": "https://discourse.nixos.org/t/override-a-transitive-emacs-dependency/6700/3"
+        },
+        {
+            "url": "https://discourse.nixos.org/t/how-to-convert-packageoverrides-to-overlays/6649"
+        }
+    ]
+}

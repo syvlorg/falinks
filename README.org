@@ -1,2 +1,3 @@
-# falinks
+* falinks
+
 Manage your links!

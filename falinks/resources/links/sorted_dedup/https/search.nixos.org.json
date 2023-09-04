@@ -1,0 +1,13 @@
+{
+    "tabs": [
+        {
+            "url": "https://search.nixos.org/packages?channel=22.05&from=0&size=50&buckets={\"package_attr_set\":[\"python39Packages\"],\"package_license_set\":[],\"package_maintainers_set\":[],\"package_platforms\":[]}&sort=relevance&type=packages&query=click"
+        },
+        {
+            "url": "https://search.nixos.org/packages?channel=22.05&show=emacs28Packages.org&from=0&size=50&buckets={\"package_attr_set\":[\"emacs28Packages\"],\"package_license_set\":[],\"package_maintainers_set\":[],\"package_platforms\":[]}&sort=relevance&type=packages&query=org"
+        },
+        {
+            "url": "https://search.nixos.org/packages?channel=unstable&show=emacs28Packages.org&from=0&size=50&buckets={\"package_attr_set\":[\"emacs28Packages\"],\"package_license_set\":[],\"package_maintainers_set\":[],\"package_platforms\":[]}&sort=relevance&type=packages&query=org"
+        }
+    ]
+}

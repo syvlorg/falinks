@@ -1,0 +1,979 @@
+{
+ "name": "excluded",
+ "type": "private_channel",
+ "id": 1848344693,
+ "messages": [
+  {
+   "id": 1,
+   "type": "service",
+   "date": "2023-05-14T01:10:57",
+   "date_unixtime": "1684041057",
+   "actor": "excluded",
+   "actor_id": "channel1848344693",
+   "action": "create_channel",
+   "title": "excluded",
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 2,
+   "type": "message",
+   "date": "2023-05-14T01:11:11",
+   "date_unixtime": "1684041071",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/syvlorg/falinks"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/syvlorg/falinks"
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "type": "message",
+   "date": "2023-05-14T01:11:14",
+   "date_unixtime": "1684041074",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://dev.to/piczmar_0/when-you-never-close-tabs-on-your-mobile-chrome-browser-2boj"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://dev.to/piczmar_0/when-you-never-close-tabs-on-your-mobile-chrome-browser-2boj"
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "type": "message",
+   "date": "2023-05-14T01:11:18",
+   "date_unixtime": "1684041078",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://www.emacswiki.org/emacs/help-macro+.el"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://www.emacswiki.org/emacs/help-macro+.el"
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "type": "message",
+   "date": "2023-05-14T01:11:21",
+   "date_unixtime": "1684041081",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/oantolin/embark"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/oantolin/embark"
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "type": "message",
+   "date": "2023-05-14T01:11:24",
+   "date_unixtime": "1684041084",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://emacs.stackexchange.com/questions/59084/package-selected-packages-what-is-it-useful-for"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://emacs.stackexchange.com/questions/59084/package-selected-packages-what-is-it-useful-for"
+    }
+   ]
+  },
+  {
+   "id": 7,
+   "type": "message",
+   "date": "2023-05-14T01:11:28",
+   "date_unixtime": "1684041088",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://www.google.com/search?q=Usenet&sourceid=chrome&ie=UTF-8"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://www.google.com/search?q=Usenet&sourceid=chrome&ie=UTF-8"
+    }
+   ]
+  },
+  {
+   "id": 8,
+   "type": "message",
+   "date": "2023-05-14T01:11:30",
+   "date_unixtime": "1684041090",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://www.google.com/search?q=Usenet&sourceid=chrome&ie=UTF-8"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://www.google.com/search?q=Usenet&sourceid=chrome&ie=UTF-8"
+    }
+   ]
+  },
+  {
+   "id": 9,
+   "type": "message",
+   "date": "2023-05-14T01:11:36",
+   "date_unixtime": "1684041096",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/emacs-tw/awesome-emacs"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/emacs-tw/awesome-emacs"
+    }
+   ]
+  },
+  {
+   "id": 10,
+   "type": "message",
+   "date": "2023-05-14T01:11:39",
+   "date_unixtime": "1684041099",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://emacs.stackexchange.com/questions/59084/package-selected-packages-what-is-it-useful-for"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://emacs.stackexchange.com/questions/59084/package-selected-packages-what-is-it-useful-for"
+    }
+   ]
+  },
+  {
+   "id": 11,
+   "type": "message",
+   "date": "2023-05-14T01:11:42",
+   "date_unixtime": "1684041102",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://www.google.com/search?q=Usenet&sourceid=chrome&ie=UTF-8"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://www.google.com/search?q=Usenet&sourceid=chrome&ie=UTF-8"
+    }
+   ]
+  },
+  {
+   "id": 12,
+   "type": "message",
+   "date": "2023-05-14T01:11:47",
+   "date_unixtime": "1684041107",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://search.nixos.org/packages?channel=unstable&show=emacs28Packages.org&from=0&size=50&buckets=%7B%22package_attr_set%22%3A%5B%22emacs28Packages%22%5D%2C%22package_license_set%22%3A%5B%5D%2C%22package_maintainers_set%22%3A%5B%5D%2C%22package_platforms%22%3A%5B%5D%7D%26sort%3Drelevance%26type%3Dpackages%26query%3Dorg"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://search.nixos.org/packages?channel=unstable&show=emacs28Packages.org&from=0&size=50&buckets=%7B%22package_attr_set%22%3A%5B%22emacs28Packages%22%5D%2C%22package_license_set%22%3A%5B%5D%2C%22package_maintainers_set%22%3A%5B%5D%2C%22package_platforms%22%3A%5B%5D%7D%26sort%3Drelevance%26type%3Dpackages%26query%3Dorg"
+    }
+   ]
+  },
+  {
+   "id": 13,
+   "type": "message",
+   "date": "2023-05-14T01:12:43",
+   "date_unixtime": "1684041163",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/applications/editors/emacs/elisp-packages/elpa-generated.nix#L3285"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/applications/editors/emacs/elisp-packages/elpa-generated.nix#L3285"
+    }
+   ]
+  },
+  {
+   "id": 13,
+   "type": "message",
+   "date": "2023-05-14T01:12:45",
+   "date_unixtime": "1684041165",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/applications/editors/emacs/elisp-packages/elpa-generated.nix#L3285"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/applications/editors/emacs/elisp-packages/elpa-generated.nix#L3285"
+    }
+   ]
+  },
+  {
+   "id": 14,
+   "type": "message",
+   "date": "2023-05-14T01:12:47",
+   "date_unixtime": "1684041167",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://www.google.com/search?q=emacs+featurep&sxsrf=ALiCzsaS23SrElm9-1yojZGep6K6i0gKqQ:1663396574404&ei=3molY-OfGKigptQP8IaF-AY&ved=0ahUKEwjjhsCPm5v6AhUokIkEHXBDAW8Q4dUDCA4&uact=5&oq=emacs+featurep&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECAAQDTIICAAQHhANEAUyCAgAEB4QDRAFMggIABAeEAgQDTIICAAQHhAIEA0yCAgAEB4QCBANMggIABAeEAgQDTIICAAQHhAIEA0yCAgAEB4QCBANMggIABAeEAgQDToHCAAQHhCwAzoECCMQJzoFCAAQkQI6BQgAEIAEOgYIABAeEBY6CAgAEB4QDxAWSgQIQRgBSgQIRhgAUOkDWJo0YOg1aAJwAHgAgAFsiAHPBpIBAzQuNZgBAKABAcgBAcABAQ&sclient=gws-wiz-serp"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://www.google.com/search?q=emacs+featurep&sxsrf=ALiCzsaS23SrElm9-1yojZGep6K6i0gKqQ:1663396574404&ei=3molY-OfGKigptQP8IaF-AY&ved=0ahUKEwjjhsCPm5v6AhUokIkEHXBDAW8Q4dUDCA4&uact=5&oq=emacs+featurep&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECAAQDTIICAAQHhANEAUyCAgAEB4QDRAFMggIABAeEAgQDTIICAAQHhAIEA0yCAgAEB4QCBANMggIABAeEAgQDTIICAAQHhAIEA0yCAgAEB4QCBANMggIABAeEAgQDToHCAAQHhCwAzoECCMQJzoFCAAQkQI6BQgAEIAEOgYIABAeEBY6CAgAEB4QDxAWSgQIQRgBSgQIRhgAUOkDWJo0YOg1aAJwAHgAgAFsiAHPBpIBAzQuNZgBAKABAcgBAcABAQ&sclient=gws-wiz-serp"
+    }
+   ]
+  },
+  {
+   "id": 15,
+   "type": "message",
+   "date": "2023-05-14T01:12:51",
+   "date_unixtime": "1684041171",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://www.google.com/search?q=emacs+featurep&sxsrf=ALiCzsaS23SrElm9-1yojZGep6K6i0gKqQ:1663396574404&ei=3molY-OfGKigptQP8IaF-AY&ved=0ahUKEwjjhsCPm5v6AhUokIkEHXBDAW8Q4dUDCA4&uact=5&oq=emacs+featurep&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECAAQDTIICAAQHhANEAUyCAgAEB4QDRAFMggIABAeEAgQDTIICAAQHhAIEA0yCAgAEB4QCBANMggIABAeEAgQDTIICAAQHhAIEA0yCAgAEB4QCBANMggIABAeEAgQDToHCAAQHhCwAzoECCMQJzoFCAAQkQI6BQgAEIAEOgYIABAeEBY6CAgAEB4QDxAWSgQIQRgBSgQIRhgAUOkDWJo0YOg1aAJwAHgAgAFsiAHPBpIBAzQuNZgBAKABAcgBAcABAQ&sclient=gws-wiz-serp"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://www.google.com/search?q=emacs+featurep&sxsrf=ALiCzsaS23SrElm9-1yojZGep6K6i0gKqQ:1663396574404&ei=3molY-OfGKigptQP8IaF-AY&ved=0ahUKEwjjhsCPm5v6AhUokIkEHXBDAW8Q4dUDCA4&uact=5&oq=emacs+featurep&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECAAQDTIICAAQHhANEAUyCAgAEB4QDRAFMggIABAeEAgQDTIICAAQHhAIEA0yCAgAEB4QCBANMggIABAeEAgQDTIICAAQHhAIEA0yCAgAEB4QCBANMggIABAeEAgQDToHCAAQHhCwAzoECCMQJzoFCAAQkQI6BQgAEIAEOgYIABAeEBY6CAgAEB4QDxAWSgQIQRgBSgQIRhgAUOkDWJo0YOg1aAJwAHgAgAFsiAHPBpIBAzQuNZgBAKABAcgBAcABAQ&sclient=gws-wiz-serp"
+    }
+   ]
+  },
+  {
+   "id": 16,
+   "type": "message",
+   "date": "2023-05-14T01:12:54",
+   "date_unixtime": "1684041174",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/NixOS/nixpkgs/blob/master/doc/builders/fetchers.chapter.md"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/NixOS/nixpkgs/blob/master/doc/builders/fetchers.chapter.md"
+    }
+   ]
+  },
+  {
+   "id": 17,
+   "type": "message",
+   "date": "2023-05-14T01:12:57",
+   "date_unixtime": "1684041177",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/NixOS/nixpkgs/blob/nixos-22.05/pkgs/applications/editors/emacs/elisp-packages/evil-markdown/default.nix"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/NixOS/nixpkgs/blob/nixos-22.05/pkgs/applications/editors/emacs/elisp-packages/evil-markdown/default.nix"
+    }
+   ]
+  },
+  {
+   "id": 18,
+   "type": "message",
+   "date": "2023-05-14T01:13:00",
+   "date_unixtime": "1684041180",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/applications/editors/emacs/elisp-packages/elpa-generated.nix#L3285"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/applications/editors/emacs/elisp-packages/elpa-generated.nix#L3285"
+    }
+   ]
+  },
+  {
+   "id": 19,
+   "type": "message",
+   "date": "2023-05-14T01:13:03",
+   "date_unixtime": "1684041183",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://discourse.nixos.org/t/how-to-put-custom-emacs-setup-in-configuration-nix/17915/4"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://discourse.nixos.org/t/how-to-put-custom-emacs-setup-in-configuration-nix/17915/4"
+    }
+   ]
+  },
+  {
+   "id": 20,
+   "type": "message",
+   "date": "2023-05-14T01:17:01",
+   "date_unixtime": "1684041421",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://discourse.nixos.org/t/override-a-transitive-emacs-dependency/6700/3"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://discourse.nixos.org/t/override-a-transitive-emacs-dependency/6700/3"
+    }
+   ]
+  },
+  {
+   "id": 21,
+   "type": "message",
+   "date": "2023-05-14T01:17:04",
+   "date_unixtime": "1684041424",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://siraben.dev/2022/02/13/nix-flake-hacks.html"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://siraben.dev/2022/02/13/nix-flake-hacks.html"
+    }
+   ]
+  },
+  {
+   "id": 22,
+   "type": "message",
+   "date": "2023-05-14T01:17:07",
+   "date_unixtime": "1684041427",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://discourse.nixos.org/t/how-to-convert-packageoverrides-to-overlays/6649"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://discourse.nixos.org/t/how-to-convert-packageoverrides-to-overlays/6649"
+    }
+   ]
+  },
+  {
+   "id": 23,
+   "type": "message",
+   "date": "2023-05-14T01:17:10",
+   "date_unixtime": "1684041430",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/NixOS/nixpkgs/issues/10811"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/NixOS/nixpkgs/issues/10811"
+    }
+   ]
+  },
+  {
+   "id": 24,
+   "type": "message",
+   "date": "2023-05-14T01:17:13",
+   "date_unixtime": "1684041433",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/nix-community/emacs-overlay/blob/master/default.nix"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/nix-community/emacs-overlay/blob/master/default.nix"
+    }
+   ]
+  },
+  {
+   "id": 25,
+   "type": "message",
+   "date": "2023-05-14T01:17:15",
+   "date_unixtime": "1684041435",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/NixOS/nixpkgs/blob/master/doc/builders/packages/emacs.section.md"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/NixOS/nixpkgs/blob/master/doc/builders/packages/emacs.section.md"
+    }
+   ]
+  },
+  {
+   "id": 26,
+   "type": "message",
+   "date": "2023-05-14T01:17:18",
+   "date_unixtime": "1684041438",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://scrive.github.io/nix-workshop/04-derivations/06-build-phases.html#configure-phase"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://scrive.github.io/nix-workshop/04-derivations/06-build-phases.html#configure-phase"
+    }
+   ]
+  },
+  {
+   "id": 27,
+   "type": "message",
+   "date": "2023-05-14T01:17:21",
+   "date_unixtime": "1684041441",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://search.nixos.org/packages?channel=22.05&show=emacs28Packages.org&from=0&size=50&buckets=%7B%22package_attr_set%22%3A%5B%22emacs28Packages%22%5D%2C%22package_license_set%22%3A%5B%5D%2C%22package_maintainers_set%22%3A%5B%5D%2C%22package_platforms%22%3A%5B%5D%7D%26sort%3Drelevance%26type%3Dpackages%26query%3Dorg"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://search.nixos.org/packages?channel=22.05&show=emacs28Packages.org&from=0&size=50&buckets=%7B%22package_attr_set%22%3A%5B%22emacs28Packages%22%5D%2C%22package_license_set%22%3A%5B%5D%2C%22package_maintainers_set%22%3A%5B%5D%2C%22package_platforms%22%3A%5B%5D%7D%26sort%3Drelevance%26type%3Dpackages%26query%3Dorg"
+    }
+   ]
+  },
+  {
+   "id": 28,
+   "type": "message",
+   "date": "2023-05-14T01:17:24",
+   "date_unixtime": "1684041444",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/NixOS/nixpkgs/blob/nixos-22.05/pkgs/applications/editors/emacs/elisp-packages/elpa-generated.nix#L3133"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/NixOS/nixpkgs/blob/nixos-22.05/pkgs/applications/editors/emacs/elisp-packages/elpa-generated.nix#L3133"
+    }
+   ]
+  },
+  {
+   "id": 29,
+   "type": "message",
+   "date": "2023-05-14T01:17:27",
+   "date_unixtime": "1684041447",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/kinnala/nixemacs"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/kinnala/nixemacs"
+    }
+   ]
+  },
+  {
+   "id": 30,
+   "type": "message",
+   "date": "2023-05-14T01:17:29",
+   "date_unixtime": "1684041449",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://www.google.com/search?q=order+capitals+over+lowercase&oq=order+capitals+over+lowercase&aqs=chrome..69i57j33i10i160l2.19319j1j7&sourceid=chrome&ie=UTF-8"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://www.google.com/search?q=order+capitals+over+lowercase&oq=order+capitals+over+lowercase&aqs=chrome..69i57j33i10i160l2.19319j1j7&sourceid=chrome&ie=UTF-8"
+    }
+   ]
+  },
+  {
+   "id": 31,
+   "type": "message",
+   "date": "2023-05-14T01:17:32",
+   "date_unixtime": "1684041452",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/orgs/click-contrib/repositories"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/orgs/click-contrib/repositories"
+    }
+   ]
+  },
+  {
+   "id": 32,
+   "type": "message",
+   "date": "2023-05-14T01:17:34",
+   "date_unixtime": "1684041454",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/click-contrib/click-plugins"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/click-contrib/click-plugins"
+    }
+   ]
+  },
+  {
+   "id": 33,
+   "type": "message",
+   "date": "2023-05-14T01:17:37",
+   "date_unixtime": "1684041457",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/click-contrib/click-didyoumean"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/click-contrib/click-didyoumean"
+    }
+   ]
+  },
+  {
+   "id": 34,
+   "type": "message",
+   "date": "2023-05-14T01:17:40",
+   "date_unixtime": "1684041460",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/click-contrib/click-aliases"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/click-contrib/click-aliases"
+    }
+   ]
+  },
+  {
+   "id": 35,
+   "type": "message",
+   "date": "2023-05-14T01:17:42",
+   "date_unixtime": "1684041462",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/click-contrib/click-threading"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/click-contrib/click-threading"
+    }
+   ]
+  },
+  {
+   "id": 36,
+   "type": "message",
+   "date": "2023-05-14T01:17:45",
+   "date_unixtime": "1684041465",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/click-contrib/click-configfile"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/click-contrib/click-configfile"
+    }
+   ]
+  },
+  {
+   "id": 37,
+   "type": "message",
+   "date": "2023-05-14T01:18:11",
+   "date_unixtime": "1684041491",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/click-contrib/click-option-group"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/click-contrib/click-option-group"
+    }
+   ]
+  },
+  {
+   "id": 38,
+   "type": "message",
+   "date": "2023-05-14T01:18:13",
+   "date_unixtime": "1684041493",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/click-contrib/click_params"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/click-contrib/click_params"
+    }
+   ]
+  },
+  {
+   "id": 39,
+   "type": "message",
+   "date": "2023-05-14T01:18:16",
+   "date_unixtime": "1684041496",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://search.nixos.org/packages?channel=22.05&from=0&size=50&buckets=%7B%22package_attr_set%22%3A%5B%22python39Packages%22%5D%2C%22package_license_set%22%3A%5B%5D%2C%22package_maintainers_set%22%3A%5B%5D%2C%22package_platforms%22%3A%5B%5D%7D%26sort%3Drelevance%26type%3Dpackages%26query%3Dclick"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://search.nixos.org/packages?channel=22.05&from=0&size=50&buckets=%7B%22package_attr_set%22%3A%5B%22python39Packages%22%5D%2C%22package_license_set%22%3A%5B%5D%2C%22package_maintainers_set%22%3A%5B%5D%2C%22package_platforms%22%3A%5B%5D%7D%26sort%3Drelevance%26type%3Dpackages%26query%3Dclick"
+    }
+   ]
+  },
+  {
+   "id": 40,
+   "type": "message",
+   "date": "2023-05-14T01:18:19",
+   "date_unixtime": "1684041499",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/nix-community/nix-doom-emacs/blob/master/checks.nix"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/nix-community/nix-doom-emacs/blob/master/checks.nix"
+    }
+   ]
+  },
+  {
+   "id": 41,
+   "type": "message",
+   "date": "2023-05-14T01:18:22",
+   "date_unixtime": "1684041502",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/nix-community/nix-doom-emacs/tree/master/test/doom.d"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/nix-community/nix-doom-emacs/tree/master/test/doom.d"
+    }
+   ]
+  },
+  {
+   "id": 42,
+   "type": "message",
+   "date": "2023-05-14T01:18:24",
+   "date_unixtime": "1684041504",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/nix-community/nix-doom-emacs/blob/master/overrides.nix"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/nix-community/nix-doom-emacs/blob/master/overrides.nix"
+    }
+   ]
+  },
+  {
+   "id": 43,
+   "type": "message",
+   "date": "2023-05-14T01:18:27",
+   "date_unixtime": "1684041507",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/nix-community/nix-straight.el"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/nix-community/nix-straight.el"
+    }
+   ]
+  },
+  {
+   "id": 44,
+   "type": "message",
+   "date": "2023-05-14T01:18:29",
+   "date_unixtime": "1684041509",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/nix-community/nix-doom-emacs/blob/master/flake.nix"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/nix-community/nix-doom-emacs/blob/master/flake.nix"
+    }
+   ]
+  },
+  {
+   "id": 45,
+   "type": "message",
+   "date": "2023-05-14T01:18:32",
+   "date_unixtime": "1684041512",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/nix-community/nix-doom-emacs/blob/master/default.nix"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/nix-community/nix-doom-emacs/blob/master/default.nix"
+    }
+   ]
+  },
+  {
+   "id": 46,
+   "type": "message",
+   "date": "2023-05-14T01:18:44",
+   "date_unixtime": "1684041524",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/snowflakelinux"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/snowflakelinux"
+    }
+   ]
+  },
+  {
+   "id": 47,
+   "type": "message",
+   "date": "2023-05-14T01:18:46",
+   "date_unixtime": "1684041526",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://github.com/syvlorg/falinks"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://github.com/syvlorg/falinks"
+    }
+   ]
+  },
+  {
+   "id": 48,
+   "type": "message",
+   "date": "2023-05-14T01:18:49",
+   "date_unixtime": "1684041529",
+   "from": "excluded",
+   "from_id": "channel1848344693",
+   "text": [
+    {
+     "type": "link",
+     "text": "https://obsidian.md/"
+    }
+   ],
+   "text_entities": [
+    {
+     "type": "link",
+     "text": "https://obsidian.md/"
+    }
+   ]
+  }
+ ]
+}

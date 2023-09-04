@@ -1,0 +1,127 @@
+{
+    "tabs": [
+        {
+            "url": "https://dev.to/piczmar_0/when-you-never-close-tabs-on-your-mobile-chrome-browser-2boj"
+        },
+        {
+            "url": "https://discourse.nixos.org/t/how-to-convert-packageoverrides-to-overlays/6649"
+        },
+        {
+            "url": "https://discourse.nixos.org/t/how-to-put-custom-emacs-setup-in-configuration-nix/17915/4"
+        },
+        {
+            "url": "https://discourse.nixos.org/t/override-a-transitive-emacs-dependency/6700/3"
+        },
+        {
+            "url": "https://emacs.stackexchange.com/questions/59084/package-selected-packages-what-is-it-useful-for"
+        },
+        {
+            "url": "https://github.com/NixOS/nixpkgs/blob/master/doc/builders/fetchers.chapter.md"
+        },
+        {
+            "url": "https://github.com/NixOS/nixpkgs/blob/master/doc/builders/packages/emacs.section.md"
+        },
+        {
+            "url": "https://github.com/NixOS/nixpkgs/blob/nixos-22.05/pkgs/applications/editors/emacs/elisp-packages/elpa-generated.nix#L3133"
+        },
+        {
+            "url": "https://github.com/NixOS/nixpkgs/blob/nixos-22.05/pkgs/applications/editors/emacs/elisp-packages/evil-markdown/default.nix"
+        },
+        {
+            "url": "https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/applications/editors/emacs/elisp-packages/elpa-generated.nix#L3285"
+        },
+        {
+            "url": "https://github.com/NixOS/nixpkgs/issues/10811"
+        },
+        {
+            "url": "https://github.com/click-contrib/click-aliases"
+        },
+        {
+            "url": "https://github.com/click-contrib/click-configfile"
+        },
+        {
+            "url": "https://github.com/click-contrib/click-didyoumean"
+        },
+        {
+            "url": "https://github.com/click-contrib/click-option-group"
+        },
+        {
+            "url": "https://github.com/click-contrib/click-plugins"
+        },
+        {
+            "url": "https://github.com/click-contrib/click-threading"
+        },
+        {
+            "url": "https://github.com/click-contrib/click_params"
+        },
+        {
+            "url": "https://github.com/emacs-tw/awesome-emacs"
+        },
+        {
+            "url": "https://github.com/kinnala/nixemacs"
+        },
+        {
+            "url": "https://github.com/nix-community/emacs-overlay/blob/master/default.nix"
+        },
+        {
+            "url": "https://github.com/nix-community/nix-doom-emacs/blob/master/checks.nix"
+        },
+        {
+            "url": "https://github.com/nix-community/nix-doom-emacs/blob/master/default.nix"
+        },
+        {
+            "url": "https://github.com/nix-community/nix-doom-emacs/blob/master/flake.nix"
+        },
+        {
+            "url": "https://github.com/nix-community/nix-doom-emacs/blob/master/overrides.nix"
+        },
+        {
+            "url": "https://github.com/nix-community/nix-doom-emacs/tree/master/test/doom.d"
+        },
+        {
+            "url": "https://github.com/nix-community/nix-straight.el"
+        },
+        {
+            "url": "https://github.com/oantolin/embark"
+        },
+        {
+            "url": "https://github.com/orgs/click-contrib/repositories"
+        },
+        {
+            "url": "https://github.com/snowflakelinux"
+        },
+        {
+            "url": "https://github.com/syvlorg/falinks"
+        },
+        {
+            "url": "https://obsidian.md/"
+        },
+        {
+            "url": "https://scrive.github.io/nix-workshop/04-derivations/06-build-phases.html#configure-phase"
+        },
+        {
+            "url": "https://search.nixos.org/packages?channel=22.05&from=0&size=50&buckets={\"package_attr_set\":[\"python39Packages\"],\"package_license_set\":[],\"package_maintainers_set\":[],\"package_platforms\":[]}&sort=relevance&type=packages&query=click"
+        },
+        {
+            "url": "https://search.nixos.org/packages?channel=22.05&show=emacs28Packages.org&from=0&size=50&buckets={\"package_attr_set\":[\"emacs28Packages\"],\"package_license_set\":[],\"package_maintainers_set\":[],\"package_platforms\":[]}&sort=relevance&type=packages&query=org"
+        },
+        {
+            "url": "https://search.nixos.org/packages?channel=unstable&show=emacs28Packages.org&from=0&size=50&buckets={\"package_attr_set\":[\"emacs28Packages\"],\"package_license_set\":[],\"package_maintainers_set\":[],\"package_platforms\":[]}&sort=relevance&type=packages&query=org"
+        },
+        {
+            "url": "https://siraben.dev/2022/02/13/nix-flake-hacks.html"
+        },
+        {
+            "url": "https://www.emacswiki.org/emacs/help-macro+.el"
+        },
+        {
+            "url": "https://www.google.com/search?q=Usenet&sourceid=chrome&ie=UTF-8"
+        },
+        {
+            "url": "https://www.google.com/search?q=emacs+featurep&sxsrf=ALiCzsaS23SrElm9-1yojZGep6K6i0gKqQ:1663396574404&ei=3molY-OfGKigptQP8IaF-AY&ved=0ahUKEwjjhsCPm5v6AhUokIkEHXBDAW8Q4dUDCA4&uact=5&oq=emacs+featurep&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIECAAQDTIICAAQHhANEAUyCAgAEB4QDRAFMggIABAeEAgQDTIICAAQHhAIEA0yCAgAEB4QCBANMggIABAeEAgQDTIICAAQHhAIEA0yCAgAEB4QCBANMggIABAeEAgQDToHCAAQHhCwAzoECCMQJzoFCAAQkQI6BQgAEIAEOgYIABAeEBY6CAgAEB4QDxAWSgQIQRgBSgQIRhgAUOkDWJo0YOg1aAJwAHgAgAFsiAHPBpIBAzQuNZgBAKABAcgBAcABAQ&sclient=gws-wiz-serp"
+        },
+        {
+            "url": "https://www.google.com/search?q=order+capitals+over+lowercase&oq=order+capitals+over+lowercase&aqs=chrome..69i57j33i10i160l2.19319j1j7&sourceid=chrome&ie=UTF-8"
+        }
+    ]
+}

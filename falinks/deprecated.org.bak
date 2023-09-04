@@ -1,0 +1,686 @@
+#+property: header-args:hy+ :tangle yes
+
+* Rich Traceback
+
+#+begin_src hy
+(import rich.traceback)
+(.install rich.traceback :show-locals True)
+#+end_src
+
+* Imports
+
+#+begin_src hy
+(import favicon)
+(import json)
+(import sys)
+(import urllib.parse)
+(import urltitle)
+#+end_src
+
+* Eval and Compile
+
+#+begin_src hy
+(eval-and-compile (import os hy))
+#+end_src
+
+** From
+
+#+begin_src hy
+(import addict [Dict])
+(import autoslot [Slots])
+(import collections [defaultdict namedtuple])
+(import contextlib [contextmanager])
+(import functools [partial])
+(import getpass [getpass getuser])
+(import hyrule [inc])
+(import pathlib [Path])
+(import pathvalidate [sanitize-filename sanitize-filepath])
+(import rich [print])
+(import rich.pretty [pprint])
+#+end_src
+
+*** Coconut
+
+[[https://coconut.readthedocs.io/en/latest/index.html][Coconut]]:
+
+#+begin_src hy
+(try (import coconut *)
+     (except [ImportError] None))
+#+end_src
+
+*** Toolz
+
+[[https://github.com/pytoolz/toolz][Toolz]] and [[https://github.com/pytoolz/cytoolz/][CyToolz]]:
+
+#+begin_src hy
+(try (import cytoolz [first])
+     (except [ImportError]
+             (import toolz [first])))
+#+end_src
+
+* Requires
+
+#+begin_src hy
+(require hyrule [assoc unless ->>])
+#+end_src
+
+* Application Imports
+
+#+begin_src hy
+(import click)
+#+end_src
+
+* Variables
+
+#+begin_src hy
+(setv excluded-urls (Dict { "basic" [ "&uri=" "#uri=" ]
+                            "parse" [ ;; The Great Suspender
+                                      "chrome-extension://idmpfopopigkhhmehkcenekenbiicmej/html/snooze.html?url=" ]
+                            "special" { ;; URL Prefix
+                                        "prefix" "://"
+
+                                        ;; Tiny Suspender Begining
+                                        "tsb" "chrome-extension://bbomjaikkcabgmfaomdichgcodnaeecf/suspend.html?url="
+                                           
+                                        ;; Tiny Suspender End
+                                        "tse" "&title" }}))
+#+end_src
+
+* Classes
+** The Cookie Jar
+
+#+begin_src hy
+(defclass Cookiejar [ Dict ]
+          (setv types #(dict str click.Path Path)
+                paths (dfor site #(
+                         "exhentai.org"
+                      ) site (/ (.home Path) ".local" "falinks" "cookies" site))
+                names { "exhentai.org" #("ipb_member_id" "ipb_pass_hash") })
+          (defn __init__ [ self #* args [cookies None] #** kwargs ]
+#+end_src
+
+Since this uses ~__setitem__~,
+if I want to pass in ~cookies~ directly to initialize the ~addict~ instead,
+I don't need to use ~self.convert~.
+
+#+begin_src hy
+                (.__init__ (super) #* args #** kwargs)
+#+end_src
+
+#+begin_src hy
+                (.update self (or cookies (dict))))
+#+end_src
+
+Adapted from [[https://stackoverflow.com/users/446610/greg-glockner][Greg Glockner's]] comment [[https://stackoverflow.com/questions/3334809/python-urllib2-how-to-send-cookie-with-urlopen-request#comment44976935_3334959][here]]:
+
+#+begin_src hy
+          (defn set [ self site ]
+                (setv (get urltitle.config.NETLOC_OVERRIDES site "extra_headers" "Cookie")
+                      (.join "; " (gfor [k v] (.items (get self site)) (+ k "=" v)))))
+#+end_src
+
+#+begin_src hy
+          (defn set-all [ self ] (for [site self] (.set self site)))
+          (defn __setitem__ [ self k v ] (.__setitem__ (super) k (.c/convert self v)))
+#+end_src
+
+Adapted from [[https://peps.python.org/pep-0584/#reference-implementation][here]]:
+
+#+begin_src hy
+          (defn __or__ [ self other ]
+                (unless (isinstance other Cookiejar.types) NotImplemented)
+                (setv new (Cookiejar self))
+                (.update new other)
+                (return new))
+          (defn __ror__ [ self other ]
+                (unless (isinstance other Cookiejar.types) NotImplemented)
+                (setv new (Cookiejar other))
+                (.update new self)
+                (return new))
+          (defn __ior__ [ self other ]
+                (.update self other)
+                (return self))
+#+end_src
+
+#+begin_src hy
+          (defn c/load [ self file ] (when (.exists file) (with [ f (.open file) ] (.load json f))))
+          (defn c/convert [ self v ]
+                (cond (isinstance v dict) v
+                      (isinstance v #(str click.Path)) (.c/load self (Path v))
+                      (isinstance v Path) (.c/load self v)
+                      True NotImplemented))
+          (defn convert [ self other ] (dfor [k v] (.items other) k (.c/convert self v)))
+          (defn update [ self other ]
+                (for [[k v] (.items (.convert self other))]
+                     (.update- (get self k) v)))
+          (defn update- [ self other ] (.update (super Dict self) other)))
+#+end_src
+
+** Link
+
+#+begin_src hy
+(defclass Link [ ]
+          (setv __slots__ #(
+               "and_indices"
+               "e_hentai"
+               "e621"
+               "exhentai"
+               "imagefap"
+               "link"
+               "rule_paheal"
+               "rule_xxx"
+               "sessionBuddy"
+               "twitter"
+               "url"
+          ))
+          (defn __init__ [ self link ]
+                (setv self.link link
+                      self.and-indices (lfor [i c] (enumerate self.link) :if (= c "&") i)
+                      self.exhentai False
+                      self.e-hentai False
+                      self.url (.convert self)
+                      self.e621 (in "e621.net/" self.url)
+                      self.rule-paheal (in "paheal.net/" self.url)
+                      self.rule-xxx (in "rule34.xxx/" self.url)
+                      self.imagefap (.startswith self.url "https://www.imagefap.com/")
+                      self.sessionBuddy (.startswith self.url "chrome-extension://edacconmaakjimmfgnblocblbcdcpbko/")
+                      self.twitter (any (gfor prefix [
+                           "https://twitter.com/"
+                           "https://mobile.twitter.com/"
+                      ] (.startswith self.url prefix)))))
+          (defn __str__ [ self ] self.url)
+          (defn convert [ self ]
+                (let [ link self.link ]
+                     (when (.startswith link "chrome-extension://")
+                           (for [prefix excluded-urls.basic]
+                                (when (in prefix link)
+#+end_src
+
+Adapted [[https://stackoverflow.com/users/2867928/mazdak][Mazdak's]] answer [[https://stackoverflow.com/a/33141629/10827766][here]]:
+
+#+begin_src hy
+                                      (setv link (.removeprefix (cut link (.find link prefix) None) prefix))))
+#+end_src
+
+#+begin_src hy
+                           (for [prefix excluded-urls.parse]
+                                (when (.startswith link prefix)
+#+end_src
+
+Adapted [[https://stackoverflow.com/users/2867928/mazdak][Mazdak's]] answer [[https://stackoverflow.com/a/33141629/10827766][here]]:
+
+#+begin_src hy
+                                      (setv link (.removeprefix (cut link (.find link prefix) None) prefix))))
+#+end_src
+
+Adapted [[https://stackoverflow.com/users/2867928/mazdak][Mazdak's]] answer [[https://stackoverflow.com/a/33141629/10827766][here]]:
+
+#+begin_src hy
+                           (when (.startswith link (setx prefix excluded-urls.special.tsb))
+                                 (setv link (.removeprefix (cut link (.find link prefix) (.find link excluded-urls.special.tse)) prefix))))
+#+end_src
+
+#+begin_src hy
+                     (setv link (.unquote urllib.parse link))
+                     (setv self.exhentai (.startswith link "https://exhentai.org/")
+                           self.e-hentai (or self.exhentai (.startswith link "https://e-hentai.org/")))
+                     (cond self.e-hentai (if (and (in "?f_search=" link)
+                                                  (= (.count link ":") 1))
+                                             (for [[k v] (.items { "?f_search=" "tag/" "\"" "" "$" "" })]
+                                                  (setv link (.replace link k v))
+                                                  (else (return link)))
+                                             link)
+                           True link)))
+          (defn get [ self prop func ]
+                (let [ prop (+ "&" prop "=") ]
+                     (if (in prop self.link)
+                         (let [ index (.find self.link prop) ]
+                              (.unquote urllib.parse (.removeprefix (->> index
+                                                                         (.index self.and-indices)
+                                                                         inc
+                                                                         (get self.and-indices)
+                                                                         (cut self.link index))
+                                                                    prop)))
+                         (func))))
+          (defn [property] favIconUrl [ self ]
+                (cond self.sessionBuddy
+                      "https://cdn.jsdelivr.net/gh/syvlorg/falinks@main/falinks/resources/icons/session_buddy_favicon_32x32.png"
+                      self.twitter "https://abs.twimg.com/favicons/twitter.2.ico"
+                      self.e621 "https://e621.net/favicon-32x32.png"
+                      self.rule-paheal "http://rule34.paheal.net/favicon.ico"
+                      self.rule-xxx "https://rule34.xxx/favicon.ico?v=2"
+                      self.imagefap "https://www.imagefap.com/images/favicons/favicon-32x32.png"
+                      True (let [ prop (.get self
+                                             "favIconUrl"
+                                             (partial favicon.get self.url :timeout 20)) ]
+                                (if (isinstance prop list) (get prop 0 0) prop))))
+          (defn [ contextmanager ] notify [ self message ]
+                (let [ filling (+ "# " (* " " (len message)) " #")
+                       border (+ "##" (* "#" (len message)) "##") ]
+                     (print)
+                     (print border)
+                     (print filling)
+                     (print (+ "# " message " #"))
+                     (print filling)
+                     (print border)
+                     (print))
+                (yield))
+#+end_src
+
+Adapted from [[https://github.com/mikf/gallery-dl/blob/master/gallery_dl/extractor/exhentai.py#L82][here]] and
+[[https://github.com/mikf/gallery-dl/blob/master/gallery_dl/extractor/common.py#L228][here]]:
+
+#+begin_src hy
+          (defn dump-exhentai-cookies [ self title ]
+                (unless (in "requests" sys.modules) (import requests))
+                (let [ exhentai "exhentai.org"
+                       url "https://forums.e-hentai.org/index.php?act=Login&CODE=01"
+                       headers (dict :Referer "https://e-hentai.org/bounce_login.php?b=d&bt=1-1")
+                       prompt-prefix #[[Please enter your "ExHentai.org" / "E-Hentai Galleries"]]
+                       data (dict :CookieDate "1"
+                                  :b "d"
+                                  :bt "1-1"
+                                  :UserName (.getuser (+ prompt-prefix "username:"))
+                                  :PassWord (.getpass (+ prompt-prefix "password:"))
+                                  :ipb-login-submit "Login!")
+                       session (.session requests)
+                       response (.request session "POST" url :headers headers :data data) ]
+                     (when (in b"You are now logged in as:" response.content)
+                           (with [ (.notify self "You have been successfully logged in to ExHentai.org!") ]
+                                 (let [ cookies (dfor cookie (get Cookiejar.names exhentai) cookie (get response.cookies cookie)) ]
+                                      (.update cookiejar { exhentai cookies })
+#+end_src
+
+Adapted from [[https://stackoverflow.com/users/9279401/andras-dosztal][Andras Dosztal's]] answer [[https://stackoverflow.com/a/48486228/10827766][here]]:
+
+#+begin_src hy
+                                      (.write-bytes (get Cookiejar.paths exhentai) (.dump json (get cookiejar exhentai) f :indent 4)))))))
+#+end_src
+
+#+begin_src hy
+          (defn get-title-partial [ self [url None] ]
+                (->> self.url
+                     (or url)
+                     (partial reader.title)
+                     (.get self "title")))
+          (defn get-title [ self ]
+                (try (cond self.exhentai (.get-title-partial self (.replace self.url "https://exhentai.org/" "https://e-hentai.org/"))
+                           True (.get-title-partial self))
+                     (except [ e URLTitleError ]
+                             (cond self.exhentai
+                                   (let [ title (.get-title-partial self)
+                                          exhentai-title "ExHentai.org" ]
+                                        (if (= title "(text/html; charset=UTF-8) (0B)")
+                                            (with [ (.notify self "Attempting to log you in to ExHentai.org...") ]
+                                                  (.dump-exhentai-cookies self)
+                                                  (with [ (.notify self "Trying to get the ExHentai.org title again...") ]
+                                                        (let [ new-title (.get-title-partial self) ]
+                                                             (if (= new-title "(text/html; charset=UTF-8) (0B)")
+                                                                 (with [ (.notify self "Sorry, something happened while attempting to retrieve the link! Setting the title to the default \"ExHentai.org\".") ]
+                                                                       exhentai-title)
+                                                                 new-title))))
+                                            title))
+                                   True (raise e)))))
+          (defn [property] title [ self ]
+                (cond self.sessionBuddy "Session Buddy"
+                      True (.get-title self)))
+          (defn [property] json [ self ] (dict :title self.title :url self.url :favIconUrl self.favIconUrl)))
+#+end_src
+
+** Falinks
+
+#+begin_src hy
+(defclass Falinks [ Slots ]
+          (defn __init__ [ self export-as-json export-links exclude no-link-headers no-count-headers no-count just-export no-links count-file overwrite sort ]
+                (setv self.json export-as-json
+                      self.ext (if self.json ".json" ".txt")
+                      self.export-links export-links
+                      self.exclude (sfor e exclude (Path e))
+                      self.no-link-headers no-link-headers
+                      self.no-count-headers no-count-headers
+                      self.no-count no-count
+                      self.just-export just-export
+                      self.no-links no-links
+
+                      ;; TODO: Where should this file go? And how?
+                      self.count-file (.resolve (.expanduser (Path count-file)))
+
+                      self.overwrite overwrite
+                      self.mode (if self.overwrite "w" "a")
+                      self.sort sort
+                      self.link-dict (dict)
+                      self.ocf (unless (or self.no-count (= self.count-file "None"))
+                                           (.open self.count-file "w"))))
+          (defn [ contextmanager ] write-count-header [ self file ]
+                (unless (or self.no-count-headers self.no-count self.just-export)
+                        (let [ header (+ "File: " (str file))
+                               sep (* "=" (len header)) ]
+                             (print header)
+                             (print sep)
+                             (when self.ocf (.write self.ocf (+ header "\n" sep "\n")))))
+                (yield)
+                (unless self.no-count
+                        (print)
+                        (when self.ocf (.write self.ocf "\n"))))
+          (defn print-file-header [ self file ]
+                (unless (or self.no-link-headers self.just-export)
+                        (let [ header (+ "File:" file) ]
+                             (print header)
+                             (print (* "=" (len header)))
+                             (print))))
+          (defn create [ self files ]
+                (for [file files]
+                     (let [ file (.resolve (.expanduser (Path file)) :strict True) ]
+                          (if (.is-dir file) (.create self (.iterdir file)) (.f/create self file)))))
+          (defn f/export [ self file links session ]
+#+end_src
+
+Adapted from [[https://stackoverflow.com/users/2907819/kmaork][kmaork's]] answer [[https://stackoverflow.com/a/59672132/10827766][here]]:
+
+#+begin_src hy
+                (let [ file (.resolve (.expanduser (Path (sanitize-filepath file :platform "auto")))) ]
+#+end_src
+
+#+begin_src hy
+                     (.mkdir file.parent :parents True :exist-ok True)
+                     (with [f (.open file self.mode)]
+                           (let [ links (lfor link (map Link links) :if link link) ]
+                                (if self.json
+                                    (.dump json (->> (lfor link links link.json)
+                                                     (+ (if self.overwrite [] (get (.load json f) "tabs")))
+                                                     (dict :tabs)) f :indent 4)
+                                    (for [link links] (.write f (+ link "\n"))))
+                                (unless self.no-count
+                                        (let [ count-string f"{session}: {(len links)}" ]
+                                             (print count-string)
+                                             (when self.ocf (.write self.ocf (+ count-string "\n")))))))))
+          (defn create-and-export [ self files ]
+                (.create self files)
+                (when (or self.export-links self.just-export) (.export self))))
+#+end_src
+
+*** Process
+
+#+begin_src hy
+(defclass Process [ Falinks ]
+          (defn __init__ [ self #* args #** kwargs ] (.__init__ (super) #* args #** kwargs))
+          (defn f/create [ self file ]
+                (unless (in file self.exclude)
+                        (let [ link-list [] ]
+                             (with [ f (.open file) ]
+                                   (for [line f]
+                                        (.append link-list (.strip line))))
+#+end_src
+
+Adapted from [[https://stackoverflow.com/users/1219006/jamylak][jamylak's]] answer [[https://stackoverflow.com/a/17016257/10827766][here]]:
+
+#+begin_src hy
+                             (assoc self.link-dict file ((if self.sort sorted tuple) (.fromkeys dict link-list)))
+#+end_src
+
+#+begin_src hy
+                             (unless (or self.no-links self.just-export)
+                                     (for [link link-list]
+                                          (print link))
+                                     (print)))))
+          (defn export [ self ]
+                (for [[file links] (.items self.link-dict)]
+                     (with [ (.write-count-header self file) ]
+                           (let [ file (.resolve (.expanduser (Path file))) ]
+#+end_src
+
+Adapted from [[https://stackoverflow.com/users/310399/js][JS.'s]] answer [[https://stackoverflow.com/a/42288083/10827766][here]]:
+
+#+begin_src hy
+                                (.f/export self f"{(/ file.parent "processed" file.stem)}{self.ext}" links file))))))
+#+end_src
+
+*** Sites
+
+#+begin_src hy
+(defclass Sites [ Falinks ]
+          (defn __init__ [ self #* args #** kwargs ] (.__init__ (super) #* args #** kwargs))
+          (defn f/create [ self file ]
+                (unless (in file self.exclude)
+                        (let [ ld (dict) ]
+                             (assoc ld "default" [])
+                             (assoc ld "http" (defaultdict list))
+                             (assoc ld "https" (defaultdict list))
+                             (with [ f (.open file) ]
+                                   (for [line f]
+                                        (let [ prefix excluded-urls.special.prefix
+                                               name (+ (cut line None (.find line prefix)) prefix)
+                                               sanitized-name (sanitize-filename (.removesuffix name prefix)) ]
+                                             (if (.startswith sanitized-name "http")
+                                                 (.append (get ld sanitized-name (get (.split (.removeprefix line name) "/") 0)) (.strip line))
+                                                 (.append (get ld "default") (.strip line))))))
+#+end_src
+
+Adapted from [[https://stackoverflow.com/users/1219006/jamylak][jamylak's]] answer [[https://stackoverflow.com/a/17016257/10827766][here]]:
+
+#+begin_src hy
+                             (assoc self.link-dict file (dfor [header sites] (.items ld) header ((if self.sort sorted tuple) (.fromkeys dict sites))))
+#+end_src
+
+#+begin_src hy
+                             (unless (or self.no-links self.just-export)
+                                     (for [[header sites] (.items ld)]
+                                          (when sites
+                                                (if (= header "default")
+                                                    (do (print (+ header ":"))
+                                                        (for [link sites]
+                                                             (print link))
+                                                        (print))
+                                                    (do (for [[site links] (.items sites)]
+                                                             (print f"{header}://{site}:")
+                                                             (for [link links]
+                                                                  (print link))
+                                                             (print))))
+                                                (print))
+                                          (print))))))
+          (defn export [ self ]
+                (for [[file headers] (.items self.link-dict)]
+                     (with [ (.write-count-header self file) ]
+#+end_src
+
+Adapted from [[https://stackoverflow.com/users/310399/js][JS.'s]] answer [[https://stackoverflow.com/a/42288083/10827766][here]]:
+
+#+begin_src hy
+                           (let [ dir (/ file.parent "sites" file.stem) ]
+#+end_src
+
+#+begin_src hy
+                                (for [[header sites] (.items headers)]
+                                     (when sites
+                                           (if (= header "default")
+                                               (.f/export self (/ dir (+ "default" self.ext)) sites)
+                                               (for [[site links] (.items sites)]
+                                                    (.f/export self (/ dir header (+ site self.ext)) links site))))))))))
+#+end_src
+
+*** Telegram
+
+#+begin_src hy
+(defclass Telegram [ Falinks ]
+          (defn __init__ [ self #* args #** kwargs ] (.__init__ (super) #* args #** kwargs))
+          (defn f/create [ self file ]
+                (unless (in file self.exclude)
+                        (let [ link-list [] ]
+                             (with [ f (.open file) ]
+                                   (let [ chat (.load json f) ]
+                                        (for [message (get chat "messages")]
+                                             (when (isinstance (setx texts (get message "text")) list)
+                                                   (for [m texts]
+                                                        (when (and (isinstance m dict)
+                                                                   (= (get m "type") "link")
+                                                                   (in "/" (setx text (get m "text"))))
+                                                              (.append link-list text)))))))
+#+end_src
+
+Adapted from [[https://stackoverflow.com/users/1219006/jamylak][jamylak's]] answer [[https://stackoverflow.com/a/17016257/10827766][here]]:
+
+#+begin_src hy
+                             (assoc self.link-dict file ((if self.sort sorted tuple) (.fromkeys dict link-list)))
+#+end_src
+
+#+begin_src hy
+                             (unless (or self.no-links self.just-export)
+                                     (for [link link-list]
+                                          (print link))
+                                     (print)))))
+          (defn export [ self ]
+                (for [[file links] (.items self.link-dict)]
+                     (with [ (.write-count-header self file) ]
+                           (let [ file (Path file) ]
+#+end_src
+
+Adapted from [[https://stackoverflow.com/users/310399/js][JS.'s]] answer [[https://stackoverflow.com/a/42288083/10827766][here]]:
+
+#+begin_src hy
+                                (.f/export self f"{(/ file.parent "telegram" file.stem)}{self.ext}" links file))))))
+#+end_src
+
+*** Session Buddy
+
+#+begin_src hy
+(defclass SessionBuddy [ Falinks ]
+          (defn __init__ [ self #* args #** kwargs ] (.__init__ (super) #* args #** kwargs))
+          (defn f/create [ self file ]
+                (let [ ld (defaultdict list) ]
+                     (unless (in file self.exclude)
+                             (with [ f (.open file) ]
+                                   (let [ sessions (get (.load json f) "sessions") ]
+                                        (for [ session sessions ]
+                                             (let [ name (sanitize-filename (.get session "name" "default")) ]
+                                                  (for [ window (get session "windows") ]
+                                                       (for [ tab (get window "tabs") ]
+                                                            (.append (get ld name) (get tab "url"))))))))
+#+end_src
+
+Adapted from [[https://stackoverflow.com/users/1219006/jamylak][jamylak's]] answer [[https://stackoverflow.com/a/17016257/10827766][here]]:
+
+#+begin_src hy
+                             (assoc self.link-dict file (dfor [name links] (.items ld) name ((if self.sort sorted tuple) (.fromkeys dict links))))
+#+end_src
+
+#+begin_src hy
+                             (unless (or self.no-links self.just-export)
+                                     (for [[name links] (.items ld)]
+                                          (print (+ name ":"))
+                                          (for [link links]
+                                               (print link))
+                                          (print))
+                                     (print)))))
+          (defn export [ self ]
+                (for [[file sessions] (.items self.link-dict)]
+                     (with [ (.write-count-header self file) ]
+                           (for [[session links] (.items sessions)]
+                                (when links
+#+end_src
+
+Adapted from [[https://stackoverflow.com/users/310399/js][JS.'s]] answer [[https://stackoverflow.com/a/42288083/10827766][here]]:
+
+#+begin_src hy
+                                      (.f/export self (/ file.parent "session_buddy" file.stem (+ session self.ext)) links session)))))))
+#+end_src
+
+* Requests
+
+#+begin_src hy
+(setv reader (.URLTitleReader urltitle :verify-ssl True)
+      urltitle.config.NETLOC_OVERRIDES (Dict urltitle.config.NETLOC_OVERRIDES)
+      cookiejar (Cookiejar Cookiejar.paths))
+#+end_src
+
+* Click
+
+#+begin_src hy
+(defn [ (.group click :no-args-is-help True)
+        (.option click "-J" "--export-as-json" :is-flag True)
+        (.option click "-e" "--export" :is-flag True)
+        (.option click "-E" "--exclude" :multiple True)
+        (.option click "-j" "--just-export" :is-flag True)
+        (.option click "-h" "--no-link-headers" :is-flag True)
+        (.option click "-H" "--no-count-headers" :is-flag True)
+        (.option click "-C" "--no-count" :is-flag True)
+        (.option click "-L" "--no-links" :is-flag True)
+        (.option click "-c" "--count-file" :default "counts.txt")
+        (.option click "--overwrite/--no-overwrite" :is-flag True :default True)
+        (.option click "-s" "--sort" :is-flag True)
+        (.option click "-u" "--use-cookies" :multiple True :type #(str str str))
+        (.option click "-a" "--add-cookies" :multiple True :type #(str str str))
+        (.option click "-U" "--use-cookiejar" :multiple True :type #(str (.Path click)))
+        (.option click "-A" "--add-cookiejar" :multiple True :type #(str (.Path click)))
+        click.pass-context ]
+      main [ ctx
+             export
+             export-as-json
+             exclude
+             no-link-headers
+             no-count-headers
+             no-count
+             just-export
+             no-links
+             count-file
+             overwrite
+             use-cookies
+             add-cookies
+             use-cookiejar
+             add-cookiejar
+             sort ]
+      (.ensure-object ctx dict)
+
+      (let [ cookies (Cookiejar) ]
+           (for [cookie use-cookies]
+                (.update cookies { (get cookie 0) { (get cookie 1) (get cookie 2) }})
+                (else (.update- cookiejar cookies))))
+      (for [cookie add-cookies]
+           (.update cookiejar { (get cookie 0) { (get cookie 1) (get cookie 2) }}))
+      (let [ cookies (Cookiejar) ]
+           (for [cookie use-cookiejar]
+                (.update cookies { (get cookie 0) (get cookie 1) })
+                (else (.update- cookiejar cookies))))
+      (for [cookie add-cookiejar]
+           (.update cookiejar { (get cookie 0) (get cookie 1) }))
+      (.set-all cookiejar)
+
+      (setv process (= ctx.invoked-subcommand "process"))
+      (setv ctx.obj.cls ((cond (= ctx.invoked-subcommand "session-buddy") SessionBuddy
+                               (= ctx.invoked-subcommand "telegram") Telegram
+                               (= ctx.invoked-subcommand "sites") Sites
+                               process Process) :export-as-json export-as-json
+                                                :export-links (or process export)
+                                                :exclude exclude
+                                                :no-link-headers no-link-headers
+                                                :no-count-headers no-count-headers
+                                                :no-count no-count
+                                                :just-export just-export
+                                                :no-links no-links
+                                                :count-file count-file
+                                                :overwrite overwrite
+                                                :sort sort)))
+
+(defn [ (.command main :name "session-buddy")
+        (.argument click "files" :nargs -1)
+        click.pass-context ]
+      session-buddy [ ctx files ]
+      (ctx.obj.cls.create-and-export (set files)))
+
+(defn [ (.command main)
+        (.argument click "files" :nargs -1)
+        click.pass-context ]
+      telegram [ ctx files ]
+      (ctx.obj.cls.create-and-export (set files)))
+
+(defn [ (.command main)
+        (.argument click "files" :nargs -1)
+        click.pass-context ]
+      sites [ ctx files ]
+      (ctx.obj.cls.create-and-export (set files)))
+
+(defn [ (.command main)
+        (.argument click "files" :nargs -1)
+        click.pass-context ]
+      process [ ctx files ]
+      (ctx.obj.cls.create-and-export (set files)))
+#+end_src

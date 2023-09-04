@@ -1,0 +1,91 @@
+{
+    "tabs": [
+        {
+            "url": "https://github.com/syvlorg/falinks"
+        },
+        {
+            "url": "https://github.com/oantolin/embark"
+        },
+        {
+            "url": "https://github.com/emacs-tw/awesome-emacs"
+        },
+        {
+            "url": "https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/applications/editors/emacs/elisp-packages/elpa-generated.nix#L3285"
+        },
+        {
+            "url": "https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/applications/editors/emacs/elisp-packages/elpa-generated.nix#L3285"
+        },
+        {
+            "url": "https://github.com/NixOS/nixpkgs/blob/master/doc/builders/fetchers.chapter.md"
+        },
+        {
+            "url": "https://github.com/NixOS/nixpkgs/blob/nixos-22.05/pkgs/applications/editors/emacs/elisp-packages/evil-markdown/default.nix"
+        },
+        {
+            "url": "https://github.com/NixOS/nixpkgs/blob/nixos-unstable/pkgs/applications/editors/emacs/elisp-packages/elpa-generated.nix#L3285"
+        },
+        {
+            "url": "https://github.com/NixOS/nixpkgs/issues/10811"
+        },
+        {
+            "url": "https://github.com/nix-community/emacs-overlay/blob/master/default.nix"
+        },
+        {
+            "url": "https://github.com/NixOS/nixpkgs/blob/master/doc/builders/packages/emacs.section.md"
+        },
+        {
+            "url": "https://github.com/NixOS/nixpkgs/blob/nixos-22.05/pkgs/applications/editors/emacs/elisp-packages/elpa-generated.nix#L3133"
+        },
+        {
+            "url": "https://github.com/kinnala/nixemacs"
+        },
+        {
+            "url": "https://github.com/orgs/click-contrib/repositories"
+        },
+        {
+            "url": "https://github.com/click-contrib/click-plugins"
+        },
+        {
+            "url": "https://github.com/click-contrib/click-didyoumean"
+        },
+        {
+            "url": "https://github.com/click-contrib/click-aliases"
+        },
+        {
+            "url": "https://github.com/click-contrib/click-threading"
+        },
+        {
+            "url": "https://github.com/click-contrib/click-configfile"
+        },
+        {
+            "url": "https://github.com/click-contrib/click-option-group"
+        },
+        {
+            "url": "https://github.com/click-contrib/click_params"
+        },
+        {
+            "url": "https://github.com/nix-community/nix-doom-emacs/blob/master/checks.nix"
+        },
+        {
+            "url": "https://github.com/nix-community/nix-doom-emacs/tree/master/test/doom.d"
+        },
+        {
+            "url": "https://github.com/nix-community/nix-doom-emacs/blob/master/overrides.nix"
+        },
+        {
+            "url": "https://github.com/nix-community/nix-straight.el"
+        },
+        {
+            "url": "https://github.com/nix-community/nix-doom-emacs/blob/master/flake.nix"
+        },
+        {
+            "url": "https://github.com/nix-community/nix-doom-emacs/blob/master/default.nix"
+        },
+        {
+            "url": "https://github.com/snowflakelinux"
+        },
+        {
+            "url": "https://github.com/syvlorg/falinks"
+        }
+    ]
+}
